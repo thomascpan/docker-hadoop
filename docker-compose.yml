@@ -48,6 +48,14 @@ services:
       - hadoop_historyserver:/hadoop/yarn/timeline
     env_file:
       - ./hadoop.env
+
+  echoserver:
+    image: bde2020/echoserver:master
+    container_name: echoserver
+    ports:
+      - 8080:8080
+    env_file:
+      - ./hadoop.env
   
 volumes:
   hadoop_namenode:

@@ -9,6 +9,7 @@ build:
 	docker build -t bde2020/hadoop-nodemanager:$(current_branch) ./nodemanager
 	docker build -t bde2020/hadoop-historyserver:$(current_branch) ./historyserver
 	docker build -t bde2020/hadoop-submit:$(current_branch) ./submit
+	docker build -t bde2020/echoserver:$(current_branch) ./echoserver
 
 wordcount:
 	docker build -t hadoop-wordcount ./submit
@@ -19,5 +20,4 @@ wordcount:
 	docker run --network ${DOCKER_NETWORK} --env-file ${ENV_FILE} bde2020/hadoop-base:$(current_branch) hdfs dfs -rm -r /output
 	docker run --network ${DOCKER_NETWORK} --env-file ${ENV_FILE} bde2020/hadoop-base:$(current_branch) hdfs dfs -rm -r /input
 
-
-# docker run --network docker-hadoop_default --env-file hadoop.env bde2020/hadoop-base:master hdfs dfs -rm -r /input
+# docker build -t bde2020/echoserver:master ./echoserver

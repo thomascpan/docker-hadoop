@@ -61,3 +61,8 @@ The available configurations are:
 * /etc/hadoop/mapred-site.xml  MAPRED_CONF
 
 If you need to extend some other configuration file, refer to base/entrypoint.sh bash script.
+
+
+
+MISC
+hdfs dfsadmin -safemode leave
