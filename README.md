@@ -65,4 +65,13 @@ If you need to extend some other configuration file, refer to base/entrypoint.sh
 
 
 MISC
+```
 hdfs dfsadmin -safemode leave
+hdfs dfs -rm -r /app-logs
+hdfs dfs -rm -r /rmstate
+hdfs dfs -rm -r /tmp
+
+docker ps -q | xargs -n 1 docker inspect --format '{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}} {{ .Name }}' | sed 's/ \// /'
+
+docker build --no-cache -t bde2020/echoserver:master ./echoserver
+```
